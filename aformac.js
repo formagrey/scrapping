@@ -8,7 +8,9 @@ function getTitres() {
     	var titre = {};
     	var f= lesTitres[i].querySelector('h3');
     	titre['title'] = f.innerHTML;
-    	listTitres.push(titre);
+    	listTitres.push({
+            titre : titre.title
+        });
     };
    return listTitres;
 }
@@ -20,9 +22,11 @@ casper.then(function () {
 });
 
 casper.run(function () {
-	casper.echo("Les formations chez AFORMAC :", 'INFO');
-    for(var i in lesTitres) {
-        casper.echo(lesTitres[i].title , 'PARAMETER');
-    }
+	//casper.echo("Les formations chez AFORMAC :", 'INFO');
+    // for(var i in lesTitres) {
+    //     casper.echo(lesTitres[i].title , 'PARAMETER');
+    // }
+    require('utils').dump(lesTitres);
+    //return lesTitres;
     casper.exit();
 });
