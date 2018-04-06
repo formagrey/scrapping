@@ -13,7 +13,11 @@
     <body>
         <div>
             <?php $var = shell_exec ('casperjs aformac.js');
-                echo $var;
+                $tabjson = json_decode($var);
+                foreach ($var as $key => $value) {
+                    # code...
+                    echo $value->title;
+                }
             ?>
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
