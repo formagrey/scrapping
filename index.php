@@ -14,9 +14,8 @@
         <div>
             <?php $var = shell_exec ('casperjs aformac.js');
                 $tabjson = json_decode($var);
-                foreach ($var as $key => $value) {
-                    # code...
-                    echo $value->title;
+                foreach ($tabjson as $key => $value) {
+                    echo $value->titre;
                 }
             ?>
         </div>
